@@ -13,8 +13,8 @@ J = 0;
 % Instructions: Compute the cost of a particular choice of theta
 %               You should set J to the cost.
 
-%["Dim X:" num2str(rows(X)) "x" num2str(columns(X))]             % Log X dimensions
-%["Dim theta:" num2str(rows(theta)) "x" num2str(columns(theta))] % Log theta dimensions
+% X     47x3
+% theta 3x1
 
 h = X * theta;
 err = h .- y;
