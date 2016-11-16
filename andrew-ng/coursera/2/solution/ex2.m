@@ -24,7 +24,8 @@ clear ; close all; clc
 %  contains the label.
 
 data = load('ex2data1.txt');
-X = data(:, [1, 2]); y = data(:, 3);
+X = data(:, [1, 2]);
+y = data(:, 3);
 
 %% ==================== Part 1: Plotting ====================
 %  We start the exercise by first plotting the data to understand the 
@@ -46,8 +47,15 @@ legend('Admitted', 'Not admitted')
 hold off;
 
 fprintf('\nProgram paused. Press enter to continue.\n');
+fprintf("sigmoid of 0\n");
+sigmoid(0)
+fprintf("\nsigmoid of [0 1 2 3]\n");
+sigmoid([1 2 3])
+fprintf("sigmoid of [1 2 3; 4 5 6]\n");
+sigmoid([1 2 3; 4 5 6])
+fprintf("sigmoid of [1 2 3 4 5 6; 7 8 9 10 11 12; 13 14 15 16 17 18]\n");
+sigmoid([1 2 3 4 5 6; 7 8 9 10 11 12; 13 14 15 16 17 18])
 pause;
-
 
 %% ============ Part 2: Compute Cost and Gradient ============
 %  In this part of the exercise, you will implement the cost and gradient
@@ -72,7 +80,6 @@ fprintf(' %f \n', grad);
 
 fprintf('\nProgram paused. Press enter to continue.\n');
 pause;
-
 
 %% ============= Part 3: Optimizing using fminunc  =============
 %  In this exercise, you will use a built-in function (fminunc) to find the

@@ -25,7 +25,8 @@ clear ; close all; clc
 %  contains the label (y).
 
 data = load('ex2data2.txt');
-X = data(:, [1, 2]); y = data(:, 3);
+X = data(:, [1, 2]);
+y = data(:, 3);
 
 plotData(X, y);
 
@@ -112,5 +113,4 @@ hold off;
 p = predict(theta, X);
 
 fprintf('Train Accuracy: %f\n', mean(double(p == y)) * 100);
-
 
