@@ -36,17 +36,24 @@ grad = zeros(size(theta));
 %           grad = grad + YOUR_CODE_HERE (using the temp variable)
 %
 
+%X     m   x n+1
+%X'    n+1 x m
+%h     m   x 1
+%y     m   x 1
+%theta n+1 x 1
+%grad  n+1 x 1
 
+% Compute regularization cost
+theta_rest = theta(2:end, :); % Exclude first from regularization
+J_reg_term = (lambda / (2 * m)) * theta_rest' * theta_rest;
 
+% Computer regularization for gradient
+grad_rest = [0; ones(length(theta) - 1, 1)]; % One-liner to ignore regularization of first term
+grad_reg_term = (lambda / m) * grad_rest .* theta;
 
-
-
-
-
-
-
-% =============================================================
-
-grad = grad(:);
+% Compute
+h       = sigmoid(X * theta);
+J       = (1 / m) * sum(-y' * log(h) - (1 - y') * log(1 - h)) + J_reg_term;
+grad    = (1 / m) * X' * (h - y) + grad_reg_term;
 
 end
