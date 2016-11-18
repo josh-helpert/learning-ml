@@ -47,17 +47,13 @@ X = [ones(m, 1) X];
 %     [theta] = ...
 %         fmincg (@(t)(lrCostFunction(t, X, (y == c), lambda)), initial_theta, options);
 
-% TODO: Make this more optimized
-%function [J, grad] = lrCostFunction(theta, X, y, lambda)
-%all_y = zeros(length(y), num_labels);
-
 init_theta = zeros(n + 1, 1);
 options    = optimset("GradObj", "on", "MaxIter", 50);
 
 % Compute theta for each classifier (eg 0, 1..8, 9)
 for c = 1:num_labels
-  theta_i = fmincg(@(t)(lrCostFunction(t, X, (y == c), lambda)), init_theta(:,:), options);
-  all_theta(c,:) = theta_i';
+  theta = fmincg(@(t)(lrCostFunction(t, X, (y == c), lambda)), init_theta(:,:), options);
+  all_theta(c,:) = theta';
 end
 
 % =========================================================================
