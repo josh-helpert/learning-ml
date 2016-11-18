@@ -32,12 +32,10 @@ X = [ones(m, 1) X];
 %X          5000 x 401
 %all_theta: 10   x 401
 
-
 % Compute which classifier (1,2..K=10) has the highest probability
 h = sigmoid(X * all_theta'); % All predictions for each classifier (1,2,..K=10)
-[hyp, p] = max(h, [], 2); % [hyp=probability of index, p=index]
+[prob, p] = max(h, [], 2);   % [prob=probability of index, p=index of max]
 
 % =========================================================================
-
 
 end
