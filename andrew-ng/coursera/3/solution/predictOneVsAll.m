@@ -12,7 +12,7 @@ m = size(X, 1);
 num_labels = size(all_theta, 1);
 
 % You need to return the following variables correctly 
-p = zeros(size(X, 1), 1);
+p = zeros(m, 1);
 
 % Add ones to the X data matrix
 X = [ones(m, 1) X];
@@ -28,13 +28,14 @@ X = [ones(m, 1) X];
 %       max element, for more information see 'help max'. If your examples 
 %       are in rows, then, you can use max(A, [], 2) to obtain the max 
 %       for each row.
-%       
+
+%X          5000 x 401
+%all_theta: 10   x 401
 
 
-
-
-
-
+% Compute which classifier (1,2..K=10) has the highest probability
+h = sigmoid(X * all_theta'); % All predictions for each classifier (1,2,..K=10)
+[hyp, p] = max(h, [], 2); % [hyp=probability of index, p=index]
 
 % =========================================================================
 
