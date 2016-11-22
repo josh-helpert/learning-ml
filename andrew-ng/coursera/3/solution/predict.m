@@ -8,7 +8,7 @@ m = size(X, 1);
 num_labels = size(Theta2, 1);
 
 % You need to return the following variables correctly 
-p = zeros(size(X, 1), 1);
+p = zeros(m, 1);
 
 % ====================== YOUR CODE HERE ======================
 % Instructions: Complete the following code to make predictions using
@@ -19,17 +19,21 @@ p = zeros(size(X, 1), 1);
 %       function can also return the index of the max element, for more
 %       information see 'help max'. If your examples are in rows, then, you
 %       can use max(A, [], 2) to obtain the max for each row.
-%
 
+%X:      5000x400
+%Theta1: 25x401
+%Theta2: 10x26
 
+% Compute neural layers
+bias = ones(m,1);
+X    = [bias X];
+a_2  = sigmoid(X * Theta1'); % 5000x25
+a_2  = [bias a_2];
+a_3  = sigmoid(a_2 * Theta2'); % 5000x10
 
-
-
-
-
-
+% Compute which classifier (1,2..K=10) has the highest probability
+[prob, p] = max(a_3, [], 2); % [prob=probability of index, p=index of max]
 
 % =========================================================================
-
 
 end
