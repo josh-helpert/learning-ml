@@ -49,15 +49,17 @@ error_val   = zeros(m, 1);
 %           ....
 %           
 %       end
-%
 
 % ---------------------- Sample Solution ----------------------
 
+for i = 1:m
+  Xs = X(1:i, :);
+  ys = y(1:i, :);
 
-
-
-
-
+  theta          = trainLinearReg(Xs, ys, lambda);
+  error_train(i) = linearRegCostFunction(Xs,   ys,   theta, 0); % No regularization
+  error_val(i)   = linearRegCostFunction(Xval, yval, theta, 0); % No regularization
+end
 
 % -------------------------------------------------------------
 
