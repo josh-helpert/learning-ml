@@ -3,22 +3,25 @@ function [X_poly] = polyFeatures(X, p)
 %   [X_poly] = POLYFEATURES(X, p) takes a data matrix X (size m x 1) and
 %   maps each example into its polynomial features where
 %   X_poly(i, :) = [X(i) X(i).^2 X(i).^3 ...  X(i).^p];
-%
-
 
 % You need to return the following variables correctly.
-X_poly = zeros(numel(X), p);
+X_poly = ones(numel(X), p);
 
 % ====================== YOUR CODE HERE ======================
 % Instructions: Given a vector X, return a matrix X_poly where the p-th 
 %               column of X contains the values of X to the p-th power.
-%
-% 
 
+%X       m x 1
+%X_poly  m x p
 
+% Build vector to represent powers
+pow = 1:p
 
+% Build matrix of numbers of X of size m x p
+X_poly = X_poly .* X;
 
-
+% Take each x to power
+X_poly = X_poly .^ pow;
 
 % =========================================================================
 
