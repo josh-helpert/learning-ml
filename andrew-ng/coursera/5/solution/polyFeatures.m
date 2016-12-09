@@ -15,7 +15,7 @@ X_poly = ones(numel(X), p);
 %X_poly  m x p
 
 % Build vector to represent powers
-pow = 1:p
+pow = 1:p;
 
 % Build matrix of numbers of X of size m x p
 X_poly = X_poly .* X;
