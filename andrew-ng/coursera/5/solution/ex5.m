@@ -164,7 +164,11 @@ pause;
 %  lambda to see how the fit and learning curve change.
 %
 
-lambda = 0;
+%lambda = 0;   % high variance
+%lambda = 100; % high bias
+%lambda = 1;    % balance
+lambda = 3;    % balance
+
 [theta] = trainLinearReg(X_poly, y, lambda);
 
 % Plot training data and fit
