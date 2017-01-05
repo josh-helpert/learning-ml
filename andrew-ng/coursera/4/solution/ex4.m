@@ -194,8 +194,7 @@ costFunction = @(p) nnCostFunction(p, ...
                                    hidden_layer_size, ...
                                    num_labels, X, y, lambda);
 
-% Now, costFunction is a function that takes in only one argument (the
-% neural network parameters)
+% Now, costFunction is a function that takes in only one argument (the neural network parameters)
 [nn_params, cost] = fmincg(costFunction, initial_nn_params, options);
 
 % Obtain Theta1 and Theta2 back from nn_params
