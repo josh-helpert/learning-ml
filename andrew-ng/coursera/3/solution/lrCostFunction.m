@@ -51,8 +51,8 @@ grad_rest = [0; ones(length(theta) - 1, 1)]; % One-liner to ignore regularizatio
 grad_reg_term = (lambda / m) * grad_rest .* theta;
 
 % Compute
-h       = sigmoid(X * theta);
-J       = (1 / m) * sum(-y' * log(h) - (1 - y') * log(1 - h)) + J_reg_term;
-grad    = (1 / m) * X' * (h - y) + grad_reg_term;
+h    = sigmoid(X * theta);
+J    = (1 / m) * sum(-y' * log(h) - (1 - y') * log(1 - h)) + J_reg_term;
+grad = (1 / m) * X' * (h - y) + grad_reg_term;
 
 end
