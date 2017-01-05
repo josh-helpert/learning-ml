@@ -35,8 +35,7 @@ email_contents = regexprep(email_contents, '[0-9]+', 'number');
 
 % Handle URLS
 % Look for strings starting with http:// or https://
-email_contents = regexprep(email_contents, ...
-                           '(http|https)://[^\s]*', 'httpaddr');
+email_contents = regexprep(email_contents, '(http|https)://[^\s]*', 'httpaddr');
 
 % Handle Email Addresses
 % Look for strings with @ in the middle
@@ -97,17 +96,15 @@ while ~isempty(email_contents)
     %       str2). It will return 1 only if the two strings are equivalent.
     %
 
-
-
-
-
-
-
-
-
+    % Find 'str' in vocabList
+    for i = 1:length(vocabList)
+      if (strcmp(str, vocabList{i}))
+        word_indices = [word_indices ; i];
+        break; % Exit early if found
+      endif
+    end
 
     % =============================================================
-
 
     % Print to screen, ensuring that the output lines are not too long
     if (l + length(str) + 1) > 78
